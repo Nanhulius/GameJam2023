@@ -56,19 +56,13 @@ public class CatepillarMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.name.Contains("Block") || coll.gameObject.name.Contains("Platform"))
-        {
-            matoAnimator.SetBool("Idle", true);
-            matoAnimator.SetBool("Flying", false);
-            canJump = true;
-        }
+        matoAnimator.SetBool("Idle", true);
+        matoAnimator.SetBool("Flying", false);
+        canJump = true;
     }
 
     void OnCollisionExit2D(Collision2D coll) {
-        if (coll.gameObject.name.Contains("Block") || coll.gameObject.name.Contains("Platform"))
-        {
-            canJump = false;
-        }
+        canJump = false;
     }
 
     private void MoveCatepillar()               // D'oh, moves the Player character
