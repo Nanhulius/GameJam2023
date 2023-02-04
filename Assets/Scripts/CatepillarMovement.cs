@@ -8,10 +8,9 @@ public class CatepillarMovement : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
 
-    private Vector2 startPosition;
-    private Vector2 newPosition;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private Animator matoAnimator;
 
     private bool facingRight = true;
 
@@ -19,13 +18,13 @@ public class CatepillarMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        matoAnimator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
-        startPosition = rb.position;
         rb.isKinematic = false;
+        matoAnimator.Play("MatoAnimation");
     }
 
     private void OnMouseDown()
