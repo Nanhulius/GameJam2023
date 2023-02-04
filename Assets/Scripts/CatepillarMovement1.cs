@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class CatepillarMovement1 : MonoBehaviour
 {
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float maxJumpForce = 500;
-    [SerializeField] private float maxXForce = 500;
+    [SerializeField] private float jumpForce = 4;
+    [SerializeField] private float maxJumpForce = 10;
     [SerializeField] private ParticleSystem launchParticles;
     private float startJumpTimer;
     private float timedJumpForce;
@@ -47,12 +46,12 @@ public class CatepillarMovement1 : MonoBehaviour
 
     private void MoveCatepillar()
     {
+        
         if (Input.GetMouseButtonDown(0)) 
         {
-            Debug.Log(rb.velocity.magnitude);
-            startJumpTimer = Time.time;
             if (rb.velocity.magnitude == 0)
             {
+                startJumpTimer = Time.time;
                 launchParticles.Play();
             }                     
              else
