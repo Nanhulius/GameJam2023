@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1898844405126021257}
   - component: {fileID: 6068346418185075432}
   - component: {fileID: 4417743135353646754}
+  - component: {fileID: -7494254637170694482}
+  - component: {fileID: 1618347464362769191}
   m_Layer: 0
   m_Name: PlayerMato
   m_TagString: Untagged
@@ -685,6 +687,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7494254637170694482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306367508808864687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92251371b2a14b00a44c4917e295a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1618347464362769191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306367508808864687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b071f787d4d4c178a0169785c4eb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  health: 1
 --- !u!1001 &1099263524347258109
 PrefabInstance:
   m_ObjectHideFlags: 0
