@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2428756022309031984}
   - component: {fileID: 1898844405126021257}
   - component: {fileID: 6068346418185075432}
+  - component: {fileID: 5397659715619323665}
   - component: {fileID: 4417743135353646754}
   m_Layer: 0
   m_Name: PlayerMato
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306367508808864687}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c88736606e95dc4a90b1808e4f3bf06, type: 3}
   m_Name: 
@@ -662,6 +663,22 @@ PolygonCollider2D:
       - {x: 0.97999996, y: 0.88}
       - {x: 0.97999996, y: 1.1899999}
       - {x: 0.91999996, y: 1.24}
+--- !u!114 &5397659715619323665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306367508808864687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2962f78f633b54bdb97ccf710b645e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 4
+  maxJumpForce: 10
+  maxXForce: 500
+  launchParticles: {fileID: 2784018315851201317}
 --- !u!95 &4417743135353646754
 Animator:
   serializedVersion: 4
