@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3360594620925011774}
   - component: {fileID: 6117304710727827888}
   m_Layer: 0
-  m_Name: BalloonPoppingEffect
+  m_Name: BadBalloonPoppingEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1031,7 +1031,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
     - serializedVersion: 2
-      time: 0.5
+      time: 0.3
       countCurve:
         serializedVersion: 2
         minMaxState: 0
@@ -1430,8 +1430,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.81023026, g: 0, b: 1, a: 1}
-        key1: {r: 0.70631087, g: 0.5273525, b: 0.9528302, a: 1}
+        key0: {r: 1, g: 0, b: 0.41559696, a: 1}
+        key1: {r: 0, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1439,7 +1439,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 33539
-        ctime1: 65535
+        ctime1: 65342
         ctime2: 0
         ctime3: 0
         ctime4: 0
