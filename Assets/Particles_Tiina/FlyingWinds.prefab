@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 409492657619119843}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5847169372842729091}
@@ -1432,7 +1432,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 0.5254902, g: 0.86036533, b: 0.9529412, a: 1}
+        key1: {r: 0.5647059, g: 0.41960788, b: 0.7607844, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 1}
         key3: {r: 0.1792453, g: 0.15162572, b: 0.054901958, a: 0.25882354}
         key4: {r: 0.1792453, g: 0.15162572, b: 0.05490196, a: 0}
@@ -4930,7 +4930,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -4983,7 +4983,7 @@ Transform:
   m_GameObject: {fileID: 5354853695791735172}
   m_LocalRotation: {x: -0.49929926, y: 0.50069976, z: 0.50069976, w: 0.49929926}
   m_LocalPosition: {x: -0, y: 0, z: -0.43}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4384808274508494441}
@@ -9809,7 +9809,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
