@@ -44,6 +44,7 @@ public class CatepillarMovement : MonoBehaviour
 
     private void MoveCatepillar()
     {
+        
         if (Input.GetMouseButtonDown(0)) 
         {
             if (rb.velocity.magnitude == 0)
@@ -61,9 +62,12 @@ public class CatepillarMovement : MonoBehaviour
             else                 
             {
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                float relativeY = mousePosition.y - rb.position.y;
+
+                Vector3 relativePosition = new Vector3(mousePosition.x, relativeY, mousePosition.z);
 
                 float timeHold = Time.time - startJumpTimer;
-                if (mousePosition.x > rb.position.x)
+                if (relativePosition.x > rb.position.x)
                 {
                     if (!facingRight)
                     {
@@ -72,7 +76,7 @@ public class CatepillarMovement : MonoBehaviour
                     }
                     float timedJumpForce = jumpForce * timeHold;
 
-                    rb.AddForce(new Vector3(1, mousePosition.y) * timedJumpForce);
+                    rb.AddForce(new Vector3(1, relativePosition.y) * timedJumpForce);
                     Debug.Log("Jumping Right");
                 }
                 else
@@ -83,7 +87,7 @@ public class CatepillarMovement : MonoBehaviour
 
                     }
                     spriteRenderer.flipX = true;
-                    rb.AddForce(new Vector3(-1, mousePosition.y) * jumpForce);
+                    rb.AddForce(new Vector3(-1, relativePosition.y) * jumpForce);
                     Debug.Log("Jumping Left");
                 }
             }           
