@@ -4,9 +4,11 @@ using System.Runtime.CompilerServices;
 using UnityEditor.PackageManager.Requests;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class CatepillarMovement : MonoBehaviour
 {
+    private SoundManager soundManager;
     [SerializeField] private float jumpForce = 4;
     [SerializeField] private float maxJumpForce = 10;
     [SerializeField] private ParticleSystem launchParticlesLeft;
@@ -28,6 +30,7 @@ public class CatepillarMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         matoAnimator = GetComponent<Animator>();
+        soundManager = GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
     private void Start()
@@ -69,6 +72,7 @@ public class CatepillarMovement : MonoBehaviour
         {
             matoAnimator.SetBool("Jumping", false);
             matoAnimator.SetBool("Flying", true);
+            soundManager.PlayJumpingAudio();
             launchParticlesRight.Stop();
             launchParticlesLeft.Stop();
 
