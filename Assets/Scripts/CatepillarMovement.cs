@@ -21,6 +21,7 @@ public class CatepillarMovement : MonoBehaviour
     private Animator matoAnimator;
 
     private bool facingRight = true;
+    private bool flying = false;
 
     private void Awake()
     {
@@ -32,29 +33,31 @@ public class CatepillarMovement : MonoBehaviour
     private void Start()
     {
         rb.isKinematic = false;
-        matoAnimator.Play("MatoAnimation");
+        matoAnimator.Play("IdleMato");
     }
 
     private void OnMouseDown()
     {
         //spriteRenderer.color = new Color(255, 0, 1);
-        Debug.Log("Spriterenderer color is " + spriteRenderer.color);
-        Debug.Log("MOUSE DOWN");
+        //Debug.Log("Spriterenderer color is " + spriteRenderer.color);
     }
 
 
     void Update()
     {
         MoveCatepillar();
+        CheckIdleMato();
     }
 
     private void MoveCatepillar()
     {
-        
+
+
         if (Input.GetMouseButtonDown(0)) 
         {
             if (rb.velocity.magnitude == 0)
             {
+                matoAnimator.SetBool("Jumping", true);
                 startJumpTimer = Time.time;
                 if (!facingRight)
                     launchParticlesRight.Play();
@@ -66,6 +69,8 @@ public class CatepillarMovement : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0)) 
         {
+            matoAnimator.SetBool("Jumping", false);
+            matoAnimator.SetBool("Flying", true);
             launchParticlesRight.Stop();
             launchParticlesLeft.Stop();
             if (rb.velocity.magnitude > 0)
@@ -117,5 +122,14 @@ public class CatepillarMovement : MonoBehaviour
             }           
         }
         
+    }
+
+    private void CheckIdleMato()
+    {
+        if (rb.velocity.magnitude == 0)
+        {
+            matoAnimator.SetBool("Idle", true);
+            matoAnimator.SetBool("Flying", false);
+        }
     }
 }
