@@ -21,6 +21,7 @@ public class PlayerData : MonoBehaviour
 
     void GameOver() {
         Debug.Log("Game Over!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Damage(int amount = 0) {
