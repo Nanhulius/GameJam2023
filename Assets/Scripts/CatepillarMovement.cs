@@ -8,6 +8,7 @@ public class CatepillarMovement : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
     [SerializeField] private float maxJumpForce = 500;
+    [SerializeField] private ParticleSystem launchParticles;
     private float startJumpTimer;
     private float timedJumpForce;
 
@@ -51,13 +52,14 @@ public class CatepillarMovement : MonoBehaviour
             if (rb.velocity.magnitude == 0)
             {
                 startJumpTimer = Time.time;
-                
+                launchParticles.Play();
             }                     
              else
                 return;
         }
         else if (Input.GetMouseButtonUp(0)) 
         {
+            launchParticles.Stop();
             if (rb.velocity.magnitude > 0)
                 return;
             else                 
