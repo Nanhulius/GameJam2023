@@ -22,26 +22,21 @@ public class MovingPlatform : MonoBehaviour
         
     void FixedUpdate()
     {
-        TimeInterval += Time.deltaTime;
-        if (TimeInterval >= 0.1)
-        {
-            TimeInterval = 0;
-            x = axisX ? 0.1f : 0;
-            y = axisY ? 0.1f : 0;
+        x = axisX ? 0.05f : 0;
+        y = axisY ? 0.05f : 0;
 
-            if (currentAmount <= 0) {
-                goingForward = true;
-            } else if (currentAmount >= amount ) {
-                goingForward = false;
-            }
+        if (currentAmount <= 0) {
+            goingForward = true;
+        } else if (currentAmount >= amount ) {
+            goingForward = false;
+        }
 
-            if (goingForward) {
-                currentAmount += 0.1f;
-                rb2D.MovePosition(new Vector2(rb2D.position.x + x, rb2D.position.y + y));
-            } else  {
-                currentAmount -= 0.1f;
-                rb2D.MovePosition(new Vector2(rb2D.position.x - x, rb2D.position.y - y));
-            }
+        if (goingForward) {
+            currentAmount += 0.05f;
+            rb2D.MovePosition(new Vector2(rb2D.position.x + x, rb2D.position.y + y));
+        } else  {
+            currentAmount -= 0.05f;
+            rb2D.MovePosition(new Vector2(rb2D.position.x - x, rb2D.position.y - y));
         }
     }
 }

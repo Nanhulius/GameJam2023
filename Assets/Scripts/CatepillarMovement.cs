@@ -16,10 +16,12 @@ public class CatepillarMovement : MonoBehaviour
     [SerializeField] private ParticleSystem flyParticlesLeft;
     [SerializeField] private ParticleSystem flyParticlesRight;
 
+
     private float startJumpTimer;
     private float timedJumpForce;
 
     private bool facingRight = true;
+    private bool canJump = false;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -52,11 +54,28 @@ public class CatepillarMovement : MonoBehaviour
         CheckIdleMato();
     }
 
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.name.Contains("Block") || coll.gameObject.name.Contains("Platform"))
+        {
+            matoAnimator.SetBool("Idle", true);
+            matoAnimator.SetBool("Flying", false);
+            canJump = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D coll) {
+        if (coll.gameObject.name.Contains("Block") || coll.gameObject.name.Contains("Platform"))
+        {
+            canJump = false;
+        }
+    }
+
     private void MoveCatepillar()               // D'oh, moves the Player character
     {
         if (Input.GetMouseButtonDown(0)) 
         {
-            if (rb.velocity.magnitude == 0)
+            if (rb.velocity.magnitude == 0 || canJump)
             {
                 matoAnimator.SetBool("Jumping", true);
                 startJumpTimer = Time.time;
@@ -76,7 +95,7 @@ public class CatepillarMovement : MonoBehaviour
             launchParticlesRight.Stop();
             launchParticlesLeft.Stop();
 
-            if (rb.velocity.magnitude > 0)
+            if (rb.velocity.magnitude > 0 && !canJump)
                 return;
             else                 
             {
