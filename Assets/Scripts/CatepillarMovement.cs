@@ -83,6 +83,9 @@ public class CatepillarMovement : MonoBehaviour
                     if (timehold > 3.0f)
                         timehold = 3.0f;
 
+                    if (relativePosition.y > 3)
+                        relativePosition = new Vector3(relativePosition.x, 3, 0);
+
                     rb.AddForce(new Vector3(1, relativePosition.y) * timedJumpForce);
                     Debug.Log("Jumping Right" + timedJumpForce);
                 }
@@ -95,6 +98,9 @@ public class CatepillarMovement : MonoBehaviour
                     }
                     if (timehold > 3.0f)
                         timehold = 3.0f;
+
+                    if (relativePosition.y > 3)
+                        relativePosition = new Vector3(relativePosition.x, 3, 0);
 
                     spriteRenderer.flipX = true;
                     rb.AddForce(new Vector3(-1, relativePosition.y) * timedJumpForce);
