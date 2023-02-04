@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class CatepillarMovement : MonoBehaviour
 {
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float maxJumpForce = 500;
+    [SerializeField] private float jumpForce = 4;
+    [SerializeField] private float maxJumpForce = 10;
     [SerializeField] private ParticleSystem launchParticlesLeft;
     [SerializeField] private ParticleSystem launchParticlesRight;
     [SerializeField] private ParticleSystem flyParticlesLeft;
@@ -77,14 +77,17 @@ public class CatepillarMovement : MonoBehaviour
                 float relativePositionX = mousePosition.x - rb.position.x;
 
                 //CalculateTimer(timedJumpForce);
-                float timehold = Time.time - startJumpTimer;
-                if (timehold > 2.0f)
-                    timehold = 2.0f;
+                float timehold = (Time.time - startJumpTimer) + 1;
+                
+                if (timehold > 4.0f) {
+                    timehold = 4.0f;
+                }
+                
                 timedJumpForce = jumpForce * timehold;               
                 timedJumpForce = (timedJumpForce > maxJumpForce) ? maxJumpForce : timedJumpForce;
                 float powerX = timehold * (relativePositionX / 3);
 
-                if (relativePosition.x > rb.position.x)
+                if (mousePosition.x > rb.position.x)
                 {            
                     if (!facingRight)
                     {
@@ -92,15 +95,10 @@ public class CatepillarMovement : MonoBehaviour
                         spriteRenderer.flipX = false;
                     }
 
-                    if (timehold > 3.0f)
-                        timehold = 3.0f;
-
-                    if (relativePosition.y > 3)
-                        relativePosition = new Vector3(relativePosition.x, 3, 0);
-
-                    rb.AddForce(new Vector3(1, relativePosition.y) * timedJumpForce);
+                    rb.AddForce(new Vector2(powerX, timedJumpForce) , ForceMode2D.Impulse);
+                    Debug.Log("Jumping Right" + powerX);
+                    Debug.Log("Jumping Up" + timedJumpForce);
                     flyParticlesLeft.Play();
-                    Debug.Log("Jumping Right" + timedJumpForce);
                 }
                 else
                 {    
@@ -108,17 +106,13 @@ public class CatepillarMovement : MonoBehaviour
                     {
                         facingRight = false;
                     }
-                    if (timehold > 2.0f)
-                        timehold = 2.0f;
-
-                    if (relativePosition.y > 3)
-                        relativePosition = new Vector3(relativePosition.x, 3, 0);
 
                     powerX = timehold * (relativePositionX / 3);
                     spriteRenderer.flipX = true;
-                    rb.AddForce(new Vector3(-1, relativePosition.y) * timedJumpForce);
+                    rb.AddForce(new Vector2(powerX, timedJumpForce) , ForceMode2D.Impulse);
+                    Debug.Log("Jumping Left" + powerX);
+                    Debug.Log("Jumping Up" + timedJumpForce);
                     flyParticlesRight.Play();
-                    Debug.Log("Jumping Left" + timedJumpForce);
                 }
             }           
         }
