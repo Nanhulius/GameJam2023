@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor.PackageManager.Requests;
 using UnityEditorInternal;
 using UnityEngine;
 
 public class CatepillarMovement : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 4;
-    [SerializeField] private float maxJumpForce = 10;
-    [SerializeField] private ParticleSystem launchParticles;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float maxJumpForce = 500;
+    [SerializeField] private ParticleSystem launchParticlesLeft;
+    [SerializeField] private ParticleSystem launchParticlesRight;
+    [SerializeField] private ParticleSystem flyParticlesLeft;
+    [SerializeField] private ParticleSystem flyParticlesRight;
     private float startJumpTimer;
     private float timedJumpForce;
 
@@ -33,7 +37,7 @@ public class CatepillarMovement : MonoBehaviour
 
     private void OnMouseDown()
     {
-        spriteRenderer.color = new Color(255, 0, 1);
+        //spriteRenderer.color = new Color(255, 0, 1);
         Debug.Log("Spriterenderer color is " + spriteRenderer.color);
         Debug.Log("MOUSE DOWN");
     }
@@ -52,58 +56,72 @@ public class CatepillarMovement : MonoBehaviour
             if (rb.velocity.magnitude == 0)
             {
                 startJumpTimer = Time.time;
-                launchParticles.Play();
+                if (!facingRight)
+                    launchParticlesRight.Play();
+                else
+                    launchParticlesLeft.Play();
             }                     
              else
                 return;
         }
         else if (Input.GetMouseButtonUp(0)) 
         {
-            launchParticles.Stop();
+            launchParticlesRight.Stop();
+            launchParticlesLeft.Stop();
             if (rb.velocity.magnitude > 0)
                 return;
             else                 
             {
+                
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float relativePositionX = mousePosition.x - rb.position.x;
 
                 //CalculateTimer(timedJumpForce);
-                float timehold = (Time.time - startJumpTimer) + 1;
-
-                if (timehold > 4.0f) {
-                    timehold = 4.0f;
-                }
-
-                timedJumpForce = jumpForce * timehold;
+                float timehold = Time.time - startJumpTimer;
+                if (timehold > 2.0f)
+                    timehold = 2.0f;
+                timedJumpForce = jumpForce * timehold;               
                 timedJumpForce = (timedJumpForce > maxJumpForce) ? maxJumpForce : timedJumpForce;
                 float powerX = timehold * (relativePositionX / 3);
 
-                if (mousePosition.x > rb.position.x)
-                {
+                if (relativePosition.x > rb.position.x)
+                {            
                     if (!facingRight)
                     {
                         facingRight = true;
                         spriteRenderer.flipX = false;
                     }
 
-                    rb.AddForce(new Vector2(powerX, timedJumpForce) , ForceMode2D.Impulse);
-                    Debug.Log("Jumping Right" + powerX);
-                    Debug.Log("Jumping Up" + timedJumpForce);
+                    if (timehold > 3.0f)
+                        timehold = 3.0f;
+
+                    if (relativePosition.y > 3)
+                        relativePosition = new Vector3(relativePosition.x, 3, 0);
+
+                    rb.AddForce(new Vector3(1, relativePosition.y) * timedJumpForce);
+                    flyParticlesLeft.Play();
+                    Debug.Log("Jumping Right" + timedJumpForce);
                 }
                 else
-                {
+                {    
                     if (facingRight)
                     {
                         facingRight = false;
                     }
+                    if (timehold > 2.0f)
+                        timehold = 2.0f;
+
+                    if (relativePosition.y > 3)
+                        relativePosition = new Vector3(relativePosition.x, 3, 0);
 
                     powerX = timehold * (relativePositionX / 3);
                     spriteRenderer.flipX = true;
-                    rb.AddForce(new Vector2(powerX, timedJumpForce) , ForceMode2D.Impulse);
-                    Debug.Log("Jumping Left" + powerX);
-                    Debug.Log("Jumping Up" + timedJumpForce);
+                    rb.AddForce(new Vector3(-1, relativePosition.y) * timedJumpForce);
+                    flyParticlesRight.Play();
+                    Debug.Log("Jumping Left" + timedJumpForce);
                 }
             }           
         }
+        
     }
 }
