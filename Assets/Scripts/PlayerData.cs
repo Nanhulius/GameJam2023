@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
@@ -35,5 +36,9 @@ public class PlayerData : MonoBehaviour
         } else {
             health = maxHealth;
         }
+    }
+
+    public void LoadScene(string name = "") {
+        SceneManager.LoadScene(name);
     }
 }

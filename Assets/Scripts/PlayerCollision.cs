@@ -16,6 +16,12 @@ public class PlayerCollision : MonoBehaviour
         {
             this.GetComponent<PlayerData>().Damage(1);
         }
+
+        if (coll.gameObject.name.Contains("Exit")) {
+            string scene = coll.gameObject.GetComponent<LoadScene>().getSceneName();
+
+            this.GetComponent<PlayerData>().LoadScene(scene);
+        }
     }
 
 }
