@@ -56,40 +56,37 @@ public class CatepillarMovement : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0)) 
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            float timeHold = Time.time - startJumpTimer;
-            if (mousePosition.x > rb.position.x)
+            if (rb.velocity.magnitude > 0)
+                return;
+            else                 
             {
-                if (!facingRight)
-                {
-                    facingRight = true;
-                    spriteRenderer.flipX = false;
-                }
-                float timedJumpForce = jumpForce * timeHold;
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                rb.AddForce(new Vector3(1, mousePosition.y) * timedJumpForce);
-                Debug.Log("Jumping Right");
-            }
-            else
-            {
-                if (facingRight)
+                float timeHold = Time.time - startJumpTimer;
+                if (mousePosition.x > rb.position.x)
                 {
-                    facingRight = false;
+                    if (!facingRight)
+                    {
+                        facingRight = true;
+                        spriteRenderer.flipX = false;
+                    }
+                    float timedJumpForce = jumpForce * timeHold;
 
+                    rb.AddForce(new Vector3(1, mousePosition.y) * timedJumpForce);
+                    Debug.Log("Jumping Right");
                 }
-                spriteRenderer.flipX = true;
-                rb.AddForce(new Vector3(-1, mousePosition.y) * jumpForce);
-                Debug.Log("Jumping Left");
-            }
+                else
+                {
+                    if (facingRight)
+                    {
+                        facingRight = false;
+
+                    }
+                    spriteRenderer.flipX = true;
+                    rb.AddForce(new Vector3(-1, mousePosition.y) * jumpForce);
+                    Debug.Log("Jumping Left");
+                }
+            }           
         }
-    }
-
-    private float CalculateJumpForce(float time)
-    {
-        float maxTime = 3f;
-        float normalizeTimer = Mathf.Clamp01(time / maxTime);
-        float force = normalizeTimer * maxJumpForce;
-        return force;
     }
 }
