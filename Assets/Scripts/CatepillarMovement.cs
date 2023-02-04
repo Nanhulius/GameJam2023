@@ -69,6 +69,9 @@ public class CatepillarMovement : MonoBehaviour
 
                 //CalculateTimer(timedJumpForce);
                 float timehold = Time.time - startJumpTimer;
+                timedJumpForce = jumpForce * timehold;
+                timedJumpForce = (timedJumpForce > maxJumpForce) ? maxJumpForce : timedJumpForce;
+
                 if (relativePosition.x > rb.position.x)
                 {
                     if (!facingRight)
@@ -79,7 +82,6 @@ public class CatepillarMovement : MonoBehaviour
 
                     if (timehold > 3.0f)
                         timehold = 3.0f;
-                    timedJumpForce = jumpForce * timehold;
 
                     rb.AddForce(new Vector3(1, relativePosition.y) * timedJumpForce);
                     Debug.Log("Jumping Right");
@@ -93,7 +95,7 @@ public class CatepillarMovement : MonoBehaviour
                     }
                     if (timehold > 3.0f)
                         timehold = 3.0f;
-                    timedJumpForce = jumpForce * timehold;
+                        
                     spriteRenderer.flipX = true;
                     rb.AddForce(new Vector3(-1, relativePosition.y) * timedJumpForce);
                     Debug.Log("Jumping Left");
