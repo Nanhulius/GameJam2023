@@ -595,20 +595,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: 3.0212052
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -3.7900674
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
-      value: 2.98
+      value: 2.585713
       objectReference: {fileID: 0}
     - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
-      value: -3.6699998
+      value: -2.51464
       objectReference: {fileID: 0}
     - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[95].x
-      value: -1.9399999
+      value: -1.4265083
       objectReference: {fileID: 0}
     - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[95].y
-      value: -3.71
+      value: -2.9672678
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[99].x
+      value: -2.6223152
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532286491402033981, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[99].y
+      value: -3.793389
       objectReference: {fileID: 0}
     - target: {fileID: 6925882117957098705, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
       propertyPath: m_RootOrder
@@ -657,6 +673,10 @@ PrefabInstance:
     - target: {fileID: 7291965084711826042, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
       propertyPath: m_Name
       value: PlayerMato
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874941021591757148, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
+      propertyPath: jumpForce
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41561e4c5be951e45b79e312b526f37b, type: 3}
