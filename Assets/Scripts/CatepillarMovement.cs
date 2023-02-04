@@ -9,6 +9,7 @@ public class CatepillarMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float maxJumpForce = 500;
     private float startJumpTimer;
+    private float timedJumpForce;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -66,7 +67,8 @@ public class CatepillarMovement : MonoBehaviour
 
                 Vector3 relativePosition = new Vector3(mousePosition.x, relativeY, mousePosition.z);
 
-                float timeHold = Time.time - startJumpTimer;
+                //CalculateTimer(timedJumpForce);
+                float timehold = Time.time - startJumpTimer;
                 if (relativePosition.x > rb.position.x)
                 {
                     if (!facingRight)
@@ -74,7 +76,10 @@ public class CatepillarMovement : MonoBehaviour
                         facingRight = true;
                         spriteRenderer.flipX = false;
                     }
-                    float timedJumpForce = jumpForce * timeHold;
+
+                    if (timehold > 3.0f)
+                        timehold = 3.0f;
+                    timedJumpForce = jumpForce * timehold;
 
                     rb.AddForce(new Vector3(1, relativePosition.y) * timedJumpForce);
                     Debug.Log("Jumping Right");
@@ -86,8 +91,11 @@ public class CatepillarMovement : MonoBehaviour
                         facingRight = false;
 
                     }
+                    if (timehold > 3.0f)
+                        timehold = 3.0f;
+                    timedJumpForce = jumpForce * timehold;
                     spriteRenderer.flipX = true;
-                    rb.AddForce(new Vector3(-1, relativePosition.y) * jumpForce);
+                    rb.AddForce(new Vector3(-1, relativePosition.y) * timedJumpForce);
                     Debug.Log("Jumping Left");
                 }
             }           
