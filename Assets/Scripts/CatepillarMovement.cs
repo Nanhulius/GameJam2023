@@ -13,14 +13,15 @@ public class CatepillarMovement : MonoBehaviour
     [SerializeField] private ParticleSystem launchParticlesRight;
     [SerializeField] private ParticleSystem flyParticlesLeft;
     [SerializeField] private ParticleSystem flyParticlesRight;
+
     private float startJumpTimer;
     private float timedJumpForce;
+
+    private bool facingRight = true;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator matoAnimator;
-
-    private bool facingRight = true;
 
     private void Awake()
     {
@@ -32,29 +33,29 @@ public class CatepillarMovement : MonoBehaviour
     private void Start()
     {
         rb.isKinematic = false;
-        matoAnimator.Play("MatoAnimation");
+        matoAnimator.Play("IdleMato");
     }
 
     private void OnMouseDown()
     {
         //spriteRenderer.color = new Color(255, 0, 1);
-        Debug.Log("Spriterenderer color is " + spriteRenderer.color);
-        Debug.Log("MOUSE DOWN");
+        //Debug.Log("Spriterenderer color is " + spriteRenderer.color);
     }
 
 
     void Update()
     {
         MoveCatepillar();
+        CheckIdleMato();
     }
 
-    private void MoveCatepillar()
+    private void MoveCatepillar()               // D'oh, moves the Player character
     {
-        
         if (Input.GetMouseButtonDown(0)) 
         {
             if (rb.velocity.magnitude == 0)
             {
+                matoAnimator.SetBool("Jumping", true);
                 startJumpTimer = Time.time;
                 if (!facingRight)
                     launchParticlesRight.Play();
@@ -66,8 +67,11 @@ public class CatepillarMovement : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0)) 
         {
+            matoAnimator.SetBool("Jumping", false);
+            matoAnimator.SetBool("Flying", true);
             launchParticlesRight.Stop();
             launchParticlesLeft.Stop();
+
             if (rb.velocity.magnitude > 0)
                 return;
             else                 
@@ -117,5 +121,14 @@ public class CatepillarMovement : MonoBehaviour
             }           
         }
         
+    }
+
+    private void CheckIdleMato()                    //Checks if Player character is in idle-mode for animator
+    {
+        if (rb.velocity.magnitude == 0)
+        {
+            matoAnimator.SetBool("Idle", true);
+            matoAnimator.SetBool("Flying", false);
+        }
     }
 }
