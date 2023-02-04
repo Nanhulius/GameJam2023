@@ -7,6 +7,8 @@ using UnityEngine;
 public class CatepillarMovement : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
+    [SerializeField] private float maxJumpForce = 500;
+    private float startJumpTimer;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -29,7 +31,9 @@ public class CatepillarMovement : MonoBehaviour
 
     private void OnMouseDown()
     {
-        spriteRenderer.color = new Color(1, 0, 1);
+        spriteRenderer.color = new Color(255, 0, 1);
+        Debug.Log("Spriterenderer color is " + spriteRenderer.color);
+        Debug.Log("MOUSE DOWN");
     }
 
 
@@ -44,33 +48,48 @@ public class CatepillarMovement : MonoBehaviour
         {
             if (rb.velocity.magnitude == 0)
             {
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Debug.Log("Mouseposition" + mousePosition.x);
-                Debug.Log("Playerposition" + rb.position.x);
-                if (mousePosition.x > rb.position.x)
-                {
-                    if (!facingRight)
-                    {
-                        facingRight = true;
-                        spriteRenderer.flipX = false;
-                    }
-                    rb.AddForce(new Vector3(1, mousePosition.y) * jumpForce);
-                    Debug.Log("Jumping Right");
-                }
-                else
-                {
-                    if (facingRight)
-                    {
-                        facingRight = false;
-
-                    }
-                    spriteRenderer.flipX = true;
-                    rb.AddForce(new Vector3(-1, mousePosition.y) * jumpForce);
-                    Debug.Log("Jumping Left");
-                }
+                startJumpTimer = Time.time;
+                
             }                     
              else
                 return;
         }
+        else if (Input.GetMouseButtonUp(0)) 
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            float timeHold = Time.time - startJumpTimer;
+            if (mousePosition.x > rb.position.x)
+            {
+                if (!facingRight)
+                {
+                    facingRight = true;
+                    spriteRenderer.flipX = false;
+                }
+                float timedJumpForce = jumpForce * timeHold;
+
+                rb.AddForce(new Vector3(1, mousePosition.y) * timedJumpForce);
+                Debug.Log("Jumping Right");
+            }
+            else
+            {
+                if (facingRight)
+                {
+                    facingRight = false;
+
+                }
+                spriteRenderer.flipX = true;
+                rb.AddForce(new Vector3(-1, mousePosition.y) * jumpForce);
+                Debug.Log("Jumping Left");
+            }
+        }
+    }
+
+    private float CalculateJumpForce(float time)
+    {
+        float maxTime = 3f;
+        float normalizeTimer = Mathf.Clamp01(time / maxTime);
+        float force = normalizeTimer * maxJumpForce;
+        return force;
     }
 }
