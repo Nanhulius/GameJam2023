@@ -13,15 +13,15 @@ public class CatepillarMovement : MonoBehaviour
     [SerializeField] private ParticleSystem launchParticlesRight;
     [SerializeField] private ParticleSystem flyParticlesLeft;
     [SerializeField] private ParticleSystem flyParticlesRight;
+
     private float startJumpTimer;
     private float timedJumpForce;
+
+    private bool facingRight = true;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator matoAnimator;
-
-    private bool facingRight = true;
-    private bool flying = false;
 
     private void Awake()
     {
@@ -49,7 +49,7 @@ public class CatepillarMovement : MonoBehaviour
         CheckIdleMato();
     }
 
-    private void MoveCatepillar()               // Moves the Player character
+    private void MoveCatepillar()               // D'oh, moves the Player character
     {
         if (Input.GetMouseButtonDown(0)) 
         {
@@ -71,6 +71,7 @@ public class CatepillarMovement : MonoBehaviour
             matoAnimator.SetBool("Flying", true);
             launchParticlesRight.Stop();
             launchParticlesLeft.Stop();
+
             if (rb.velocity.magnitude > 0)
                 return;
             else                 
