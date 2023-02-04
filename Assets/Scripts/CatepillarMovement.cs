@@ -49,10 +49,8 @@ public class CatepillarMovement : MonoBehaviour
         CheckIdleMato();
     }
 
-    private void MoveCatepillar()
+    private void MoveCatepillar()               // Moves the Player character
     {
-
-
         if (Input.GetMouseButtonDown(0)) 
         {
             if (rb.velocity.magnitude == 0)
@@ -124,7 +122,7 @@ public class CatepillarMovement : MonoBehaviour
         
     }
 
-    private void CheckIdleMato()
+    private void CheckIdleMato()                    //Checks if Player character is in idle-mode for animator
     {
         if (rb.velocity.magnitude == 0)
         {
