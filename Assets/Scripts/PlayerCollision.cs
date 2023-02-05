@@ -36,10 +36,8 @@ public class PlayerCollision : MonoBehaviour
         }
 
         if (coll.gameObject.name.Contains("Kill"))
-        {
-        
+        {        
             soundManager.PlayDeathSound();
-
             this.GetComponent<PlayerData>().Damage(1);
         }
 

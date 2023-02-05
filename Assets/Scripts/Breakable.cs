@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip breakWallSFX;
     [SerializeField] int health = 2;
     [SerializeField] Sprite broken;
     [SerializeField] Sprite normal;
@@ -16,12 +17,14 @@ public class Breakable : MonoBehaviour
     void Awake() {
         maxHealth = health;
         spriteRenderer = this.GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.name.Contains("Player"))
         {
+            PlayBreakWallAudio();
             health--;
 
             if (health <= maxHealth / 2) {
@@ -41,5 +44,11 @@ public class Breakable : MonoBehaviour
         breakingParticles.Play();
         yield return new WaitForSeconds(1);
         this.gameObject.SetActive(false);
+    }
+
+    public void PlayBreakWallAudio()
+    {
+        audioSource.clip = breakWallSFX;
+        audioSource.Play();
     }
 }

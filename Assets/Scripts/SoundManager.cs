@@ -59,11 +59,7 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public void PlayBreakWallAudio()
-    {
-        audioSource.clip = breakWallSFX;
-        audioSource.Play();
-    }
+    
 
     public void PlayBubbleBurstAudio()
     {
