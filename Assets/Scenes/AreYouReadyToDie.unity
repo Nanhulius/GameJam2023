@@ -424,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 890718927098993945, guid: e73865f0c7db64d71bc975c06b84e709, type: 3}
       propertyPath: m_Name
-      value: Moving Platform (1)
+      value: Moving Platform Kill
       objectReference: {fileID: 0}
     - target: {fileID: 890718927098993948, guid: e73865f0c7db64d71bc975c06b84e709, type: 3}
       propertyPath: axisX
@@ -1969,7 +1969,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 890718927098993945, guid: e73865f0c7db64d71bc975c06b84e709, type: 3}
       propertyPath: m_Name
-      value: Moving Platform
+      value: Moving Platform Kill
       objectReference: {fileID: 0}
     - target: {fileID: 890718927098993948, guid: e73865f0c7db64d71bc975c06b84e709, type: 3}
       propertyPath: amount
