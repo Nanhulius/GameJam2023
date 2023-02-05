@@ -1032,6 +1032,8 @@ MonoBehaviour:
   jumpSFX:
   - {fileID: 8300000, guid: bfb1ad3df3d6f654cbfda295377bcd8b, type: 3}
   - {fileID: 8300000, guid: b41540dbe568d0645b4173f8ae0081aa, type: 3}
+  waitForSFX: 0
+  sfxTimer: 0
 --- !u!4 &1337057607
 Transform:
   m_ObjectHideFlags: 0
