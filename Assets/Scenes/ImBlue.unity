@@ -921,29 +921,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ec7fc87688944359c6af130517d286, type: 3}
---- !u!1 &589418574 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4900444980533019633, guid: 1cfb9964fcdc048409e4abe63ce4a231, type: 3}
-  m_PrefabInstance: {fileID: 1506849989}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &589418575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589418574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a47b92f5e2b4ca0a3193388117aa61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  broken: {fileID: 21300000, guid: 2d352b2bca94e4551854d5c5721b9802, type: 3}
-  normal: {fileID: 21300000, guid: 0c7d2aee6a050461d8b31bdf2eac931f, type: 3}
-  breakingParticles: {fileID: 0}
-  maxHealth: 2
-  spriteRenderer: {fileID: 0}
 --- !u!1001 &728561663
 PrefabInstance:
   m_ObjectHideFlags: 0
