@@ -12,6 +12,27 @@ EditorBuildSettings:
     path: Assets/Scenes/tutorial.unity
     guid: 570f6962671f93e4da38df03afdbda4a
   - enabled: 1
-    path: Assets/Scenes/1.unity
+    path: Assets/Scenes/WhichTeam.unity
+    guid: 2e32b509c2b30416da9549a3e0f382b1
+  - enabled: 1
+    path: Assets/Scenes/AreYouEvil.unity
+    guid: d0e08ce05fbca406c842680467a8db71
+  - enabled: 1
+    path: Assets/Scenes/YesYouAre.unity
     guid: 064ff59ff76d6460da0f95eb12a68513
+  - enabled: 1
+    path: Assets/Scenes/AreYouReadyToDie.unity
+    guid: 3fe487e89c31e423abc1fe6904c0fb4c
+  - enabled: 1
+    path: Assets/Scenes/FloorOnCeling.unity
+    guid: 0c59e3484543b774fbfe3f403b50d2bf
+  - enabled: 1
+    path: Assets/Scenes/ImBlue.unity
+    guid: 150469188c2014d8da56100d52b1eab9
+  - enabled: 1
+    path: Assets/Scenes/LeftRight.unity
+    guid: 0d4e5a7cf7fd94b9d9bf99f1b2a54587
+  - enabled: 1
+    path: Assets/Scenes/WannaDie.unity
+    guid: e9cd208ea84984d79935861ce2130815
   m_configObjects: {}
