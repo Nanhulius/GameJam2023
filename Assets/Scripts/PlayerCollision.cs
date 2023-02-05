@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour
         }
 
         if (coll.gameObject.name.Contains("Red")) {
-            PlayerPrefs.SetString("team", "Blue");
+            PlayerPrefs.SetString("team", "Red");
         }
 
         if (coll.gameObject.name.Contains("Skull"))
