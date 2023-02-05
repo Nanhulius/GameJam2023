@@ -201,10 +201,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -331249370192374662, guid: 3aba0ba5dd22f4da9bdcce5baec7ab8c, type: 3}
-      propertyPath: sceneName
-      value: WhichTeam
-      objectReference: {fileID: 0}
     - target: {fileID: 5039952162926006304, guid: 3aba0ba5dd22f4da9bdcce5baec7ab8c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -537,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6952327531016285868, guid: f3ec7fc87688944359c6af130517d286, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6952327531016285868, guid: f3ec7fc87688944359c6af130517d286, type: 3}
       propertyPath: m_LocalScale.x
@@ -1659,7 +1655,11 @@ RectTransform:
   m_Children:
   - {fileID: 2066990908}
   m_Father: {fileID: 0}
+<<<<<<< Updated upstream
   m_RootOrder: 7
+=======
+  m_RootOrder: 6
+>>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1818,11 +1818,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7277002883124622143, guid: b6d985bd0a95ad645b5a70511b5301e6, type: 3}
       propertyPath: m_LocalScale.x
+<<<<<<< Updated upstream
       value: 1.8643283
       objectReference: {fileID: 0}
     - target: {fileID: 7277002883124622143, guid: b6d985bd0a95ad645b5a70511b5301e6, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.4643148
+=======
+      value: 0.5360966
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277002883124622143, guid: b6d985bd0a95ad645b5a70511b5301e6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.56296575
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7277002883124622143, guid: b6d985bd0a95ad645b5a70511b5301e6, type: 3}
       propertyPath: m_LocalScale.z
