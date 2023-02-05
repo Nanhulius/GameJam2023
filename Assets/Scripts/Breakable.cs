@@ -8,6 +8,7 @@ public class Breakable : MonoBehaviour
     [SerializeField] int health = 2;
     [SerializeField] Sprite broken;
     [SerializeField] Sprite normal;
+    [SerializeField] ParticleSystem breakingParticles;
 
     public int maxHealth = 2;
     public SpriteRenderer spriteRenderer;
@@ -28,8 +29,17 @@ public class Breakable : MonoBehaviour
             }
 
             if (health < 0) {
-                this.gameObject.SetActive(false);
+                StartCoroutine(Break());
             }
         }
+    }
+
+    IEnumerator Break()
+    {
+        Debug.Log("Break!");
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        breakingParticles.Play();
+        yield return new WaitForSeconds(1);
+        this.gameObject.SetActive(false);
     }
 }
