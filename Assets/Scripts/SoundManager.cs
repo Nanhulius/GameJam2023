@@ -19,8 +19,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        
+        audioSource = GetComponent<AudioSource>();        
     }
 
     public void PlayJumpingAudio()
