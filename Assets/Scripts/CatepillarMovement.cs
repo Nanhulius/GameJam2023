@@ -85,7 +85,10 @@ public class CatepillarMovement : MonoBehaviour
         {
             matoAnimator.SetBool("Jumping", false);
             matoAnimator.SetBool("Flying", true);
+
+
             soundManager.PlayJumpingAudio();
+
             launchParticlesRight.Stop();
             launchParticlesLeft.Stop();
 
