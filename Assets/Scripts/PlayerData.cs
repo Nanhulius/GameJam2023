@@ -7,17 +7,6 @@ public class PlayerData : MonoBehaviour
 {
     [SerializeField] int maxHealth = 1;
     [SerializeField] int health = 1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void GameOver() {
         Debug.Log("Game Over!");
