@@ -7,16 +7,22 @@ public class PlayerData : MonoBehaviour
 {
     [SerializeField] int maxHealth = 1;
     [SerializeField] int health = 1;
+    [SerializeField] ParticleSystem deathParticle;
 
-    void GameOver() {
+    IEnumerator GameOver()
+    {
         Debug.Log("Game Over!");
+        this.GetComponent<CatepillarMovement>().enabled = false;;
+        deathParticle.Play();
+        yield return new WaitForSeconds(5);
+        deathParticle.Stop();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Damage(int amount = 0) {
         health -= amount;
         if (health <= 1) {
-            this.GameOver();
+           StartCoroutine(GameOver());
         }
     }
 
