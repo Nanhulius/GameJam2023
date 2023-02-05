@@ -22,9 +22,18 @@ public class PlayerCollision : MonoBehaviour
             PlayerPrefs.SetString("team", "Blue");
         }
 
+        if (coll.gameObject.name.Contains("Skull"))
+        {
+            soundManager.PlaySkullDeathAudio();
+            this.GetComponent<PlayerData>().Damage(1);
+        }
+
         if (coll.gameObject.name.Contains("Kill"))
         {
-            soundManager.PlayDeathSound();
+            
+            
+                soundManager.PlayDeathSound();
+
             this.GetComponent<PlayerData>().Damage(1);
         }
 
