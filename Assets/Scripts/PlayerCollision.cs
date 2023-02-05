@@ -15,6 +15,15 @@ public class PlayerCollision : MonoBehaviour
         health = this.GetComponent<PlayerData>().getHealth();
     }
 
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.name.Contains("Kill"))
+        {        
+            soundManager.PlayDeathSound();
+            this.GetComponent<PlayerData>().Damage(1);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (health <= 0) {
