@@ -12,7 +12,8 @@ public class PlayerData : MonoBehaviour
     IEnumerator GameOver()
     {
         Debug.Log("Game Over!");
-        this.GetComponent<CatepillarMovement>().enabled = false;;
+        this.GetComponent<CatepillarMovement>().enabled = false;
+        this.GetComponent<SpriteRenderer>().enabled = false;
         deathParticle.Play();
         yield return new WaitForSeconds(2);
         deathParticle.Stop();
