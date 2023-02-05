@@ -14,7 +14,7 @@ public class PlayerData : MonoBehaviour
         Debug.Log("Game Over!");
         this.GetComponent<CatepillarMovement>().enabled = false;;
         deathParticle.Play();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         deathParticle.Stop();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
