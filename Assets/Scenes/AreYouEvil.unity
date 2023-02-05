@@ -633,6 +633,7 @@ MonoBehaviour:
   jumpSFX:
   - {fileID: 8300000, guid: bfb1ad3df3d6f654cbfda295377bcd8b, type: 3}
   - {fileID: 8300000, guid: b41540dbe568d0645b4173f8ae0081aa, type: 3}
+  badEndingSFX: []
   chargeJumpSFX: {fileID: 8300000, guid: 2320473dc5246064cb4b6866e57ff5e8, type: 3}
   deathSFX: {fileID: 8300000, guid: 8dc1e7c2c5c18c44e8710893e195bc8b, type: 3}
   skullDeathSFX: {fileID: 8300000, guid: c6cf70404877e034e8692483b63aa868, type: 3}
@@ -2632,7 +2633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -331249370192374662, guid: 3aba0ba5dd22f4da9bdcce5baec7ab8c, type: 3}
       propertyPath: sceneName
-      value: BadEnd
+      value: AreYouEvilEnding
       objectReference: {fileID: 0}
     - target: {fileID: 5039952162926006304, guid: 3aba0ba5dd22f4da9bdcce5baec7ab8c, type: 3}
       propertyPath: m_RootOrder
