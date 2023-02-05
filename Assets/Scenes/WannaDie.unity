@@ -913,7 +913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621158456622628604, guid: 32543c0bf2d254d42a5a22ecf5a4cfc1, type: 3}
       propertyPath: m_text
-      value: Are you ready to die?
+      value: Are you wanna die?
       objectReference: {fileID: 0}
     - target: {fileID: 3621158456622628605, guid: 32543c0bf2d254d42a5a22ecf5a4cfc1, type: 3}
       propertyPath: m_AnchoredPosition.y
