@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] bubbleBurstSFX;
     public AudioClip[] jumpSFX;
+    public AudioClip[] badEndingSFX;
     public AudioClip chargeJumpSFX;
     public AudioClip deathSFX;
     public AudioClip skullDeathSFX;
@@ -69,6 +70,12 @@ public class SoundManager : MonoBehaviour
     public void PlayBubbleBurstAudio()
     {
         audioSource.clip = bubbleBurstSFX[Random.Range(0, bubbleBurstSFX.Length)];
+        audioSource.Play();
+    }
+
+    public void PlayBadEndingAudio()
+    {
+        audioSource.clip = badEndingSFX[Random.Range(0, badEndingSFX.Length)];
         audioSource.Play();
     }
 
