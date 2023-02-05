@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour
         }
 
         if (coll.gameObject.name.Contains("Red")) {
-            PlayerPrefs.SetString("team", "Blue");
+            PlayerPrefs.SetString("team", "Red");
         }
 
         if (coll.gameObject.name.Contains("Skull"))
@@ -36,10 +36,8 @@ public class PlayerCollision : MonoBehaviour
         }
 
         if (coll.gameObject.name.Contains("Kill"))
-        {
-        
+        {        
             soundManager.PlayDeathSound();
-
             this.GetComponent<PlayerData>().Damage(1);
         }
 
