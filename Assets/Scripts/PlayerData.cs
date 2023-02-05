@@ -42,6 +42,10 @@ public class PlayerData : MonoBehaviour
         }
     }
 
+    public int getHealth () {
+        return health;
+    }
+
     public void Heal(int amount = 0) {
         if (health + amount <= maxHealth) {
             health += amount;

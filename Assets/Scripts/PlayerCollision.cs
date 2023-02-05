@@ -6,14 +6,21 @@ public class PlayerCollision : MonoBehaviour
 {
     private SoundManager soundManager;
     private ChangeSceneAudio changeSceneAudio;
+    private int health = 1;
+
     private void Awake()
     {
         soundManager = GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>();
         changeSceneAudio = GameObject.FindWithTag("ChangeScene").GetComponent<ChangeSceneAudio>();
+        health = this.GetComponent<PlayerData>().getHealth();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        if (health <= 0) {
+            return;
+        }
+
         if (coll.gameObject.name.Contains("Blue")) {
             PlayerPrefs.SetString("team", "Blue");
         }
@@ -30,9 +37,8 @@ public class PlayerCollision : MonoBehaviour
 
         if (coll.gameObject.name.Contains("Kill"))
         {
-            
-            
-                soundManager.PlayDeathSound();
+        
+            soundManager.PlayDeathSound();
 
             this.GetComponent<PlayerData>().Damage(1);
         }
