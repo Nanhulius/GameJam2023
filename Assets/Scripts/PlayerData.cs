@@ -8,6 +8,21 @@ public class PlayerData : MonoBehaviour
     [SerializeField] int maxHealth = 1;
     [SerializeField] int health = 1;
     [SerializeField] ParticleSystem deathParticle;
+    //[SerializeField] SpriteRenderer hat;
+    public string team = "none";
+
+    public void Awake() {
+        team = PlayerPrefs.GetString("team");
+
+        if (team == "Red") {
+            //hat.enabled = true;
+            this.GetComponent<SpriteRenderer>().color = new Color(255,0,0,1); 
+        } 
+        if (team == "Blue") {
+            //hat.enabled = true;
+            this.GetComponent<SpriteRenderer>().color = new Color(0,0,255,1); 
+        }
+    }
 
     IEnumerator GameOver()
     {

@@ -7,6 +7,14 @@ public class PlayerCollision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        if (coll.gameObject.name.Contains("Blue")) {
+            PlayerPrefs.SetString("team", "Blue");
+        }
+
+        if (coll.gameObject.name.Contains("Red")) {
+            PlayerPrefs.SetString("team", "Blue");
+        }
+
         if (coll.gameObject.name.Contains("Kill"))
         {
             this.GetComponent<PlayerData>().Damage(1);
