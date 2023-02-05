@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip chargeJumpSFX;
     public AudioClip deathSFX;
     public AudioClip skullDeathSFX;
+    public AudioClip breakWallSFX;
     private float waitForSFX = 0f;
 
     public bool sfxTimer = false;
@@ -55,6 +56,12 @@ public class SoundManager : MonoBehaviour
     public void PlaySkullDeathAudio()
     {
         audioSource.clip = skullDeathSFX;
+        audioSource.Play();
+    }
+
+    public void PlayBreakWallAudio()
+    {
+        audioSource.clip = breakWallSFX;
         audioSource.Play();
     }
 
