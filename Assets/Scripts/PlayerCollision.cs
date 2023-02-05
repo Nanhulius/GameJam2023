@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    private SoundManager soundManager;
+    private ChangeSceneAudio changeSceneAudio;
+    private void Awake()
+    {
+        soundManager = GameObject.FindWithTag("SoundManager").GetComponent<SoundManager>();
+        changeSceneAudio = GameObject.FindWithTag("ChangeScene").GetComponent<ChangeSceneAudio>();
+    }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
@@ -17,10 +24,13 @@ public class PlayerCollision : MonoBehaviour
 
         if (coll.gameObject.name.Contains("Kill"))
         {
+            soundManager.PlayDeathSound();
             this.GetComponent<PlayerData>().Damage(1);
         }
 
         if (coll.gameObject.name.Contains("Exit")) {
+            soundManager.PlayBubbleBurstAudio();
+            changeSceneAudio.PlayChangeSceneAudio();
             StartCoroutine(Exit(coll));
         }
     }
@@ -30,7 +40,7 @@ public class PlayerCollision : MonoBehaviour
         string scene = coll.gameObject.GetComponent<LoadScene>().getSceneName();
         coll.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         coll.gameObject.GetComponent<LoadScene>().popBubble();
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(2.7f);
         this.GetComponent<PlayerData>().LoadScene(scene);
     }
 

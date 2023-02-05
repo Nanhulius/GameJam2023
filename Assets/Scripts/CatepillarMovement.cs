@@ -71,6 +71,15 @@ public class CatepillarMovement : MonoBehaviour
         {
             if (rb.velocity.magnitude == 0 || canJump)
             {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (mousePosition.x > rb.position.x) {
+                    facingRight = true;
+                    spriteRenderer.flipX = false;
+                } else {
+                    facingRight = false;
+                    spriteRenderer.flipX = true;
+                }
+                
                 soundManager.PlayChargeJumpAudio();
                 matoAnimator.SetBool("Jumping", true);
                 startJumpTimer = Time.time;
@@ -84,19 +93,18 @@ public class CatepillarMovement : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0)) 
         {
+            if (rb.velocity.magnitude > 0 && !canJump)
+                return;
+            else                 
+            {
+
             matoAnimator.SetBool("Jumping", false);
             matoAnimator.SetBool("Flying", true);
-
 
             soundManager.PlayJumpingAudio();
 
             launchParticlesRight.Stop();
             launchParticlesLeft.Stop();
-
-            if (rb.velocity.magnitude > 0 && !canJump)
-                return;
-            else                 
-            {
                 
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float relativePositionX = mousePosition.x - rb.position.x;

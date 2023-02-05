@@ -5,9 +5,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource audioSource;
+    public AudioClip[] bubbleBurstSFX;
     public AudioClip[] jumpSFX;
     public AudioClip chargeJumpSFX;
-
+    public AudioClip deathSFX;
     private float waitForSFX = 0f;
 
     public bool sfxTimer = false;
@@ -42,6 +43,18 @@ public class SoundManager : MonoBehaviour
         }
         else
             return;
+    }
+
+    public void PlayDeathSound()
+    {
+        audioSource.clip = deathSFX;
+        audioSource.Play();
+    }
+
+    public void PlayBubbleBurstAudio()
+    {
+        audioSource.clip = bubbleBurstSFX[Random.Range(0, bubbleBurstSFX.Length)];
+        audioSource.Play();
     }
 
     private IEnumerator WaitForJumpSound(float waitForSFX)
