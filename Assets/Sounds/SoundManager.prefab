@@ -46,8 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 8297733536633198683}
+  bubbleBurstSFX:
+  - {fileID: 8300000, guid: 11bab4ed87047c74ca45fe94642de4d4, type: 3}
+  - {fileID: 8300000, guid: 8d04b728f5420fd498ff46b69b4d710a, type: 3}
   jumpSFX:
   - {fileID: 8300000, guid: dd0ec18471f51e24380516026dd7f5ed, type: 3}
+  chargeJumpSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
+  sfxTimer: 0
 --- !u!82 &8297733536633198683
 AudioSource:
   m_ObjectHideFlags: 0
