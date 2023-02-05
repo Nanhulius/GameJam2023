@@ -6,8 +6,9 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] jumpSFX;
+    public AudioClip chargeJumpSFX;
 
-    public float waitForSFX = 0f;
+    private float waitForSFX = 0f;
 
     public bool sfxTimer = false;
 
@@ -28,6 +29,19 @@ public class SoundManager : MonoBehaviour
         }
         else
             return;      
+    }
+
+    public void PlayChargeJumpAudio()
+    {
+        if (!sfxTimer)
+        {
+            audioSource.clip = chargeJumpSFX;
+            audioSource.Play();
+            waitForSFX = Random.Range(5.5f, 10.0f);
+            StartCoroutine(WaitForJumpSound(waitForSFX));
+        }
+        else
+            return;
     }
 
     private IEnumerator WaitForJumpSound(float waitForSFX)

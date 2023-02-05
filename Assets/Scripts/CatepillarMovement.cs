@@ -71,6 +71,7 @@ public class CatepillarMovement : MonoBehaviour
         {
             if (rb.velocity.magnitude == 0 || canJump)
             {
+                soundManager.PlayChargeJumpAudio();
                 matoAnimator.SetBool("Jumping", true);
                 startJumpTimer = Time.time;
                 if (!facingRight)
