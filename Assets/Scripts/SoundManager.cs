@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip deathSFX;
     public AudioClip skullDeathSFX;
     public AudioClip breakWallSFX;
+    public AudioClip goodEndingSFX;
     private float waitForSFX = 0f;
 
     public bool sfxTimer = false;
@@ -59,7 +60,11 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
     }
 
-    
+    public void PlayGoodEndingAudio()
+    {
+        audioSource.clip = goodEndingSFX;
+        audioSource.Play();
+    }
 
     public void PlayBubbleBurstAudio()
     {
