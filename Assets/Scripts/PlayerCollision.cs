@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
@@ -18,10 +13,17 @@ public class PlayerCollision : MonoBehaviour
         }
 
         if (coll.gameObject.name.Contains("Exit")) {
-            string scene = coll.gameObject.GetComponent<LoadScene>().getSceneName();
-
-            this.GetComponent<PlayerData>().LoadScene(scene);
+            StartCoroutine(Exit(coll));
         }
+    }
+
+    IEnumerator Exit(Collider2D coll)
+    {
+        string scene = coll.gameObject.GetComponent<LoadScene>().getSceneName();
+        coll.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        coll.gameObject.GetComponent<LoadScene>().popBubble();
+        yield return new WaitForSeconds(0.7f);
+        this.GetComponent<PlayerData>().LoadScene(scene);
     }
 
 }

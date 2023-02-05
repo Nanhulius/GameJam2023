@@ -5,13 +5,14 @@ using UnityEngine;
 public class LoadScene : MonoBehaviour
 {
     [SerializeField] string sceneName = "menu";
-        // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] ParticleSystem baloonParticle;
 
     public string getSceneName() {
         return sceneName;
+    }
+
+    public void popBubble() {
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        baloonParticle.Play();
     }
 }

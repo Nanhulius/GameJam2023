@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: -25.81, y: -8.56, z: 0}
   m_LocalScale: {x: 0.5360966, y: -0.56296575, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6194654991561411534}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: WhichTeam
+  baloonParticle: {fileID: 4045015969764187695}
 --- !u!95 &627104884
 Animator:
   serializedVersion: 4
@@ -136,3 +138,74 @@ CapsuleCollider2D:
   m_Offset: {x: 0.059563007, y: 0.0049740686}
   m_Size: {x: 3.6508882, y: 1.9736199}
   m_Direction: 1
+--- !u!1001 &1621845172620982545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5039952162926006304}
+    m_Modifications:
+    - target: {fileID: 3360594620925011774, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687647318182977754, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+      propertyPath: m_Name
+      value: NeutralBalloonPoppingEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+--- !u!198 &4045015969764187695 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3360594620925011774, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+  m_PrefabInstance: {fileID: 1621845172620982545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6194654991561411534 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4861115125653779167, guid: 8955d571de1416c478de472bd05ce027, type: 3}
+  m_PrefabInstance: {fileID: 1621845172620982545}
+  m_PrefabAsset: {fileID: 0}
